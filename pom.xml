@@ -7,11 +7,35 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <name>eitco open source parent pom</name>
+    <description>a parent pom for eitco open source software</description>
+    <url>https://github.com/eitco/eitco-oss-parent</url>
+
     <organization>
         <name>${application.vendor.fullname}</name>
         <url>${application.vendor.url}</url>
     </organization>
 
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Jan Schwarz</name>
+            <email>jschwarz@eitco.de</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/eitco/eitco-oss-parent.git</url>
+        <connection>scm:git:https://github.com/eitco/eitco-oss-parent.git</connection>
+        <developerConnection>scm:git:https://github.com/eitco/eitco-oss-parent.git</developerConnection>
+    </scm>
 
     <properties>
 
@@ -94,7 +118,6 @@
         <maven.project.info.reports.plugin.version>3.0.0</maven.project.info.reports.plugin.version>
         <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
         <maven.plugin.tools.version>3.9.0</maven.plugin.tools.version>
-        <maven.deploy.plugin.version>2.8</maven.deploy.plugin.version>
         <winsw.version>2.9.0</winsw.version>
 
         <opentelemetry.version>1.32.0</opentelemetry.version>
@@ -182,10 +205,6 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${maven.deploy.plugin.version}</version>
-                </plugin>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven.compiler.plugin.version}</version>
@@ -515,6 +534,20 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>3.2.4</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -534,12 +567,19 @@
                 </executions>
             </plugin>
             <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
