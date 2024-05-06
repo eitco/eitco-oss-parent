@@ -1,5 +1,4 @@
 name: build commits
-
 on:
   push: {}
 #    branches-ignore: [ main ]
