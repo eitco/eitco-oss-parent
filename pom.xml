@@ -545,18 +545,7 @@
                             <arg>--pinentry-mode</arg>
                             <arg>loopback</arg>
                         </gpgArguments>
-                        <keyname>${env.GPG_KEY_NAME}</keyname>
-<!--                        <passphrase>${env.GPG_PASS_PHRASE}</passphrase>-->
                     </configuration>
-                    <executions>
-                        <execution>
-                            <id>sign-artifacts</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>sign</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -655,6 +644,34 @@
         </profile>
         <profile>
             <id>sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>env.GPG_KEY_NAME</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <configuration>
+                            <keyname>${env.GPG_KEY_NAME}</keyname>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>sign-code</id>
             <activation>
                 <property>
                     <name>env.SIGNATURE_KEYSTORE_FILE</name>

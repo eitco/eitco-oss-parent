@@ -17,10 +17,8 @@ jobs:
           cache: maven
           server-id: github
           gpg-private-key: ${{ secrets.ARTIFACT_SIGNING_GPG_PRIVATE_KEY }}
-#          gpg-passphrase: ${{ secrets.ARTIFACT_SIGNING_GPG_PRIVATE_KEY_PASSWORD }}
       - name: execute maven
         run: export GPG_TTY=$(tty) && mvn --batch-mode install -e
         env:
           GPG_KEY_NAME: ${{ secrets.ARTIFACT_SIGNING_GPG_KEY_NAME }}
           MAVEN_GPG_PASSPHRASE : ${{ secrets.ARTIFACT_SIGNING_GPG_PRIVATE_KEY_PASSWORD }}
-#          GPG_PASS_PHRASE: ${{ secrets.ARTIFACT_SIGNING_GPG_PRIVATE_KEY_PASSWORD }}
