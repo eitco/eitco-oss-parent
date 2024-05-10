@@ -120,10 +120,8 @@
         <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
         <maven.plugin.tools.version>3.9.0</maven.plugin.tools.version>
         <winsw.version>2.9.0</winsw.version>
+        <maven.jarsigner.plugin.version>3.0.0</maven.jarsigner.plugin.version>
 
-        <opentelemetry.version>1.32.0</opentelemetry.version>
-
-        <testng.version>7.8.0</testng.version>
 
         <!-- java 9+ awareness -->
         <glassifish.jaxb.runtime.version>2.4.0-b180830.0438</glassifish.jaxb.runtime.version>
@@ -151,7 +149,9 @@
 
 
         <spring.boot.version>2.3.6.RELEASE</spring.boot.version>
-        <maven.jarsigner.plugin.version>3.0.0</maven.jarsigner.plugin.version>
+        <jackson.version>2.17.1</jackson.version>
+        <opentelemetry.version>1.32.0</opentelemetry.version>
+        <testng.version>7.8.0</testng.version>
 
         <maven.invoker.plugin.settings.location>src/it/settings.xml</maven.invoker.plugin.settings.location>
     </properties>
@@ -200,6 +200,60 @@
                 <classifier>bin</classifier>
                 <type>exe</type>
             </dependency>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-plugin-api</artifactId>
+                <version>${maven.plugin.tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugin-tools</groupId>
+                <artifactId>maven-plugin-annotations</artifactId>
+                <version>${maven.plugin.tools.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-core</artifactId>
+                <version>3.2.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-utils</artifactId>
+                <version>3.1.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>1.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>2.0.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -576,6 +630,32 @@
                         <deploymentName>${project.groupId}:${project.artifactId}:${project.version}</deploymentName>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>${maven.plugin.tools.version}</version>
+                    <configuration>
+                        <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>mojo-descriptor</id>
+                            <goals>
+                                <goal>descriptor</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>help-goal</id>
+                            <goals>
+                                <goal>helpmojo</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${generated.java.main.source.directory}
+                                </outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -674,6 +754,7 @@
             <properties>
                 <system.os>windows</system.os>
                 <exec.file.extension>.exe</exec.file.extension>
+                <href.protocol>file:/</href.protocol>
             </properties>
         </profile>
         <profile>
@@ -686,6 +767,7 @@
             <properties>
                 <system.os>windows</system.os>
                 <exec.file.extension>.exe</exec.file.extension>
+                <href.protocol>file:/</href.protocol>
             </properties>
         </profile>
         <profile>
@@ -698,6 +780,7 @@
             <properties>
                 <system.os>linux</system.os>
                 <exec.file.extension/>
+                <href.protocol/>
             </properties>
         </profile>
         <profile>
