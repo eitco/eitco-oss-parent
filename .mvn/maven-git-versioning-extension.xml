@@ -5,15 +5,15 @@
     <refs considerTagsOnBranches="true">
         <ref type="tag">
             <pattern><![CDATA[(?<tag>[0-9]+\.[0-9]+\.[0-9]+)]]></pattern>
-            <version>${tag}</version>
+            <version>${ref.tag}</version>
             <properties>
                 <property>
                     <name>version.semantic.release</name>
-                    <value>${tag}</value>
+                    <value>${ref.tag}</value>
                 </property>
                 <property>
                     <name>version.semantic</name>
-                    <value>${tag}</value>
+                    <value>${ref.tag}</value>
                 </property>
                 <property>
                     <name>original.version</name>
@@ -21,11 +21,11 @@
                 </property>
                 <property>
                     <name>version.numeric</name>
-                    <value>${tag}</value>
+                    <value>${ref.tag}</value>
                 </property>
                 <property>
                     <name>version.symbolic</name>
-                    <value>redeploy-${tag}</value>
+                    <value>redeploy-${ref.tag}</value>
                 </property>
                 <property>
                     <name>scm.branch</name>
@@ -33,21 +33,21 @@
                 </property>
                 <property>
                     <name>npm.project.version</name>
-                    <value>${tag}</value>
+                    <value>${ref.tag}</value>
                 </property>
             </properties>
         </ref>
         <ref type="branch">
             <pattern><![CDATA[(?<branch>(lts-.*)-development)]]></pattern>
-            <version>${branch}-SNAPSHOT</version>
+            <version>${ref.branch}-SNAPSHOT</version>
             <properties>
                 <property>
                     <name>version.semantic.release</name>
-                    <value>${version.release}-${branch}</value>
+                    <value>${version.release}-${ref.branch}</value>
                 </property>
                 <property>
                     <name>version.semantic</name>
-                    <value>${version.release}-${branch}-SNAPSHOT</value>
+                    <value>${version.release}-${ref.branch}-SNAPSHOT</value>
                 </property>
                 <property>
                     <name>original.version</name>
@@ -59,11 +59,11 @@
                 </property>
                 <property>
                     <name>version.symbolic</name>
-                    <value>${branch}</value>
+                    <value>${ref.branch}</value>
                 </property>
                 <property>
                     <name>scm.branch</name>
-                    <value>${branch}</value>
+                    <value>${ref.branch}</value>
                 </property>
             </properties>
         </ref>
@@ -99,15 +99,15 @@
         </ref>
         <ref type="branch">
             <pattern><![CDATA[((feature|bugfix)/)?(?<feature>[a-zA-Z][a-zA-Z][a-zA-Z]*-[0-9]+).*]]></pattern>
-            <version>${feature}-SNAPSHOT</version>
+            <version>${ref.feature}-SNAPSHOT</version>
             <properties>
                 <property>
                     <name>version.semantic.release</name>
-                    <value>${version.release}-${feature}</value>
+                    <value>${version.release}-${ref.feature}</value>
                 </property>
                 <property>
                     <name>version.semantic</name>
-                    <value>${version.release}-${feature}-SNAPSHOT</value>
+                    <value>${version.release}-${ref.feature}-SNAPSHOT</value>
                 </property>
                 <property>
                     <name>original.version</name>
@@ -119,7 +119,7 @@
                 </property>
                 <property>
                     <name>version.symbolic</name>
-                    <value>${feature}</value>
+                    <value>${ref.feature}</value>
                 </property>
                 <property>
                     <name>scm.branch</name>
@@ -129,15 +129,15 @@
         </ref>
         <ref type="branch">
             <pattern><![CDATA[(feature|bugfix)/(?<feature>.+)]]></pattern>
-            <version>${feature}-SNAPSHOT</version>
+            <version>${ref.feature}-SNAPSHOT</version>
             <properties>
                 <property>
                     <name>version.semantic.release</name>
-                    <value>${version.release}-${feature}</value>
+                    <value>${version.release}-${ref.feature}</value>
                 </property>
                 <property>
                     <name>version.semantic</name>
-                    <value>${version.release}-${feature}-SNAPSHOT</value>
+                    <value>${version.release}-${ref.feature}-SNAPSHOT</value>
                 </property>
                 <property>
                     <name>original.version</name>
@@ -149,7 +149,7 @@
                 </property>
                 <property>
                     <name>version.symbolic</name>
-                    <value>${feature}</value>
+                    <value>${ref.feature}</value>
                 </property>
                 <property>
                     <name>scm.branch</name>
@@ -159,15 +159,15 @@
         </ref>
         <ref type="branch">
             <pattern><![CDATA[(?<branch>.+)]]></pattern>
-            <version>${branch}-SNAPSHOT</version>
+            <version>${ref.branch}-SNAPSHOT</version>
             <properties>
                 <property>
                     <name>version.semantic.release</name>
-                    <value>${version.release}-${branch}</value>
+                    <value>${version.release}-${ref.branch}</value>
                 </property>
                 <property>
                     <name>version.semantic</name>
-                    <value>${version.release}-${branch}-SNAPSHOT</value>
+                    <value>${version.release}-${ref.branch}-SNAPSHOT</value>
                 </property>
                 <property>
                     <name>original.version</name>
@@ -179,17 +179,17 @@
                 </property>
                 <property>
                     <name>version.symbolic</name>
-                    <value>${branch}</value>
+                    <value>${ref.branch}</value>
                 </property>
                 <property>
                     <name>scm.branch</name>
-                    <value>${branch}</value>
+                    <value>${ref.branch}</value>
                 </property>
             </properties>
         </ref>
         <ref type="tag">
             <pattern><![CDATA[(?<tag>.+)]]></pattern>
-            <version>${tag}</version>
+            <version>${ref.tag}</version>
             <properties>
                 <property>
                     <name>version.semantic.release</name>
@@ -209,7 +209,7 @@
                 </property>
                 <property>
                     <name>version.symbolic</name>
-                    <value>${tag}</value>
+                    <value>${ref.tag}</value>
                 </property>
                 <property>
                     <name>scm.branch</name>
