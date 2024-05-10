@@ -4,7 +4,7 @@
 
     <groupId>de.eitco</groupId>
     <artifactId>eitco-oss-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>pom</packaging>
 
     <name>eitco open source parent pom</name>
@@ -35,7 +35,7 @@
         <url>https://github.com/eitco/eitco-oss-parent.git</url>
         <connection>scm:git:https://github.com/eitco/eitco-oss-parent.git</connection>
         <developerConnection>scm:git:https://github.com/eitco/eitco-oss-parent.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>0.0.1</tag>
   </scm>
 
     <properties>
