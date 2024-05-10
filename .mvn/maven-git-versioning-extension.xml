@@ -29,7 +29,7 @@
         </property>
     </branch>
     <branch>
-        <pattern>master|lts-(.*)</pattern>
+        <pattern>main|lts-(.*)</pattern>
         <versionFormat>${version}</versionFormat>
         <property>
             <pattern>version.semantic.release</pattern>
