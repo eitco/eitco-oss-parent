@@ -413,6 +413,7 @@
                     <configuration>
                         <tagNameFormat>@{project.version}</tagNameFormat>
                         <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <releaseProfiles>deploy-to-central</releaseProfiles>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -605,17 +606,17 @@
                         </gpgArguments>
                     </configuration>
                 </plugin>
-                <plugin>
-                    <groupId>org.sonatype.plugins</groupId>
-                    <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>1.6.13</version>
-                    <extensions>true</extensions>
-                    <configuration>
-                        <serverId>ossrh</serverId>
-                        <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                        <autoReleaseAfterClose>false</autoReleaseAfterClose>
-                    </configuration>
-                </plugin>
+                <!--                <plugin>-->
+                <!--                    <groupId>org.sonatype.plugins</groupId>-->
+                <!--                    <artifactId>nexus-staging-maven-plugin</artifactId>-->
+                <!--                    <version>1.6.13</version>-->
+                <!--                    <extensions>true</extensions>-->
+                <!--                    <configuration>-->
+                <!--                        <serverId>ossrh</serverId>-->
+                <!--                        <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>-->
+                <!--                        <autoReleaseAfterClose>false</autoReleaseAfterClose>-->
+                <!--                    </configuration>-->
+                <!--                </plugin>-->
                 <plugin>
                     <groupId>org.sonatype.central</groupId>
                     <artifactId>central-publishing-maven-plugin</artifactId>
@@ -858,6 +859,21 @@
                         </plugin>
                     </plugins>
                 </pluginManagement>
+            </build>
+        </profile>
+        <profile>
+            <id>deploy-to-central</id>
+            <activation>
+                <!-- will be activated by release plugin -->
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
             </build>
         </profile>
     </profiles>
