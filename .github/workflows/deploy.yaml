@@ -7,4 +7,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: eitco/maven-deploy
+      - uses: eitco/maven-deploy@main
