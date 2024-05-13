@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.eitco</groupId>
@@ -15,7 +16,6 @@
         <name>${application.vendor.fullname}</name>
         <url>${application.vendor.url}</url>
     </organization>
-
 
     <licenses>
         <license>
@@ -144,8 +144,8 @@
         <build.number>0</build.number>
 
         <!-- will be set by profiles -->
-        <system.os />
-        <exec.file.extension />
+        <system.os/>
+        <exec.file.extension/>
 
 
         <spring.boot.version>2.3.6.RELEASE</spring.boot.version>
@@ -474,9 +474,7 @@
                             </goals>
                             <phase>package</phase>
                             <configuration>
-                                <sourcepath>
-                                    ${project.build.sourceDirectory}:${generated.java.main.source.directory}
-                                </sourcepath>
+                                <sourcepath>${project.build.sourceDirectory}:${generated.java.main.source.directory}</sourcepath>
                                 <failOnWarnings>false</failOnWarnings>
                                 <failOnError>false</failOnError>
                                 <additionalOptions>-html5</additionalOptions>
@@ -606,17 +604,6 @@
                         </gpgArguments>
                     </configuration>
                 </plugin>
-                <!--                <plugin>-->
-                <!--                    <groupId>org.sonatype.plugins</groupId>-->
-                <!--                    <artifactId>nexus-staging-maven-plugin</artifactId>-->
-                <!--                    <version>1.6.13</version>-->
-                <!--                    <extensions>true</extensions>-->
-                <!--                    <configuration>-->
-                <!--                        <serverId>ossrh</serverId>-->
-                <!--                        <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>-->
-                <!--                        <autoReleaseAfterClose>false</autoReleaseAfterClose>-->
-                <!--                    </configuration>-->
-                <!--                </plugin>-->
                 <plugin>
                     <groupId>org.sonatype.central</groupId>
                     <artifactId>central-publishing-maven-plugin</artifactId>
@@ -780,8 +767,8 @@
             </activation>
             <properties>
                 <system.os>linux</system.os>
-                <exec.file.extension />
-                <href.protocol />
+                <exec.file.extension/>
+                <href.protocol/>
             </properties>
         </profile>
         <profile>
