@@ -474,9 +474,7 @@
                             </goals>
                             <phase>package</phase>
                             <configuration>
-                                <sourcepath>
-                                    ${project.build.sourceDirectory}:${generated.java.main.source.directory}
-                                </sourcepath>
+                                <sourcepath>${project.build.sourceDirectory}:${generated.java.main.source.directory}</sourcepath>
                                 <failOnWarnings>false</failOnWarnings>
                                 <failOnError>false</failOnError>
                                 <additionalOptions>-html5</additionalOptions>
