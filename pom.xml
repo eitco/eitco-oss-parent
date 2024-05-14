@@ -799,22 +799,6 @@
             </build>
         </profile>
         <profile>
-            <id>activate-ossrh-nexus-plugin</id>
-            <activation>
-                <property>
-                    <name>env.OSSRH_JIRA_USERNAME</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
             <id>sign-code</id>
             <activation>
                 <property>
