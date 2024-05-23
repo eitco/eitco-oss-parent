@@ -1,5 +1,7 @@
-# eitco-oss-parent
+# eitco open source software parent pom
 
-[![Build status](https://github.com/eitco/eitco-oss-parent/actions/workflows/deploy.yaml/badge.svg?branch=main)](https://github.com/eitco/eitco-oss-parent/actions/workflows/deploy.yaml)
+[![Build status](https://img.shields.io/github/actions/workflow/status/eitco/eitco-oss-parent/deploy.yaml?branch=main&style=for-the-badge&logo=github)](https://github.com/eitco/eitco-oss-parent/actions/workflows/deploy.yaml)
+[![Maven Central Version](https://img.shields.io/maven-central/v/de.eitco/eitco-oss-parent?style=for-the-badge&logo=apachemaven)](https://central.sonatype.com/artifact/de.eitco/eitco-oss-parent)
 
-parent pom for eitco open source software
+This is the parent pom for eitco open source software. It provides build configuration, convenience properties and 
+default versions for maven based builds. 
