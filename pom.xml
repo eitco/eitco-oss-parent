@@ -154,16 +154,8 @@
 
         <maven.invoker.plugin.settings.location>src/it/settings.xml</maven.invoker.plugin.settings.location>
 
-        <!-- for automatic bom creation -->
-        <bom.maven.plugin.version>5.1.1</bom.maven.plugin.version>
-        <bom.directory>${project.build.directory}</bom.directory>
-        <bom.filename>dependency-management.xml</bom.filename>
-        <bom.path>${bom.directory}/${bom.filename}</bom.path>
-        <bom.artifactFilename>bom.xml</bom.artifactFilename>
-        <bom.artifactPath>${project.build.directory}/${bom.artifactFilename}</bom.artifactPath>
-        <bom.artifactId>${project.artifactId}-bom</bom.artifactId>
-        <flatten.maven.plugin.version>1.5.0</flatten.maven.plugin.version>
-
+        <central.deployment.name>${project.groupId}:${project.artifactId}:${project.version}</central.deployment.name>
+        <central.server.id>ossrh</central.server.id>
     </properties>
 
     <dependencyManagement>
@@ -415,22 +407,6 @@
                                 </outputDirectory>
                             </configuration>
                         </execution>
-                        <execution>
-                            <id>fill-bom</id>
-                            <phase>process-sources</phase>
-                            <goals>
-                                <goal>copy-resources</goal>
-                            </goals>
-                            <configuration>
-                                <resources>
-                                    <resource>
-                                        <directory>${bom.directory}/template</directory>
-                                        <filtering>true</filtering>
-                                    </resource>
-                                </resources>
-                                <outputDirectory>${bom.directory}</outputDirectory>
-                            </configuration>
-                        </execution>
                     </executions>
                 </plugin>
                 <plugin>
@@ -637,12 +613,12 @@
                     <version>0.4.0</version>
                     <extensions>true</extensions>
                     <configuration>
-                        <publishingServerId>ossrh</publishingServerId>
+                        <publishingServerId>${central.server.id}</publishingServerId>
                         <tokenAuth>true</tokenAuth>
                         <autoPublish>true</autoPublish>
                         <waitUntil>published</waitUntil>
                         <checksums>all</checksums>
-                        <deploymentName>${project.groupId}:${project.artifactId}:${project.version}</deploymentName>
+                        <deploymentName>${central.deployment.name}</deploymentName>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -662,50 +638,6 @@
                                 <outputDirectory>${generated.java.main.source.directory}
                                 </outputDirectory>
                             </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>flatten-maven-plugin</artifactId>
-                    <version>${flatten.maven.plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>generate-bom</id>
-                            <goals>
-                                <goal>flatten</goal>
-                            </goals>
-                            <phase>generate-sources</phase>
-                            <configuration>
-                                <flattenMode>defaults</flattenMode>
-                                <updatePomFile>false</updatePomFile>
-                                <outputDirectory>${bom.directory}/template</outputDirectory>
-                                <flattenedPomFilename>${bom.filename}</flattenedPomFilename>
-                                <pomElements>
-                                    <repositories>flatten</repositories>
-                                    <dependencyManagement>interpolate</dependencyManagement>
-                                </pomElements>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>de.eitco.cicd</groupId>
-                    <artifactId>bom-maven-plugin</artifactId>
-                    <version>${bom.maven.plugin.version}</version>
-                    <configuration>
-                        <additionalBoms>
-                            <additionalBom>${bom.path}</additionalBom>
-                        </additionalBoms>
-                        <artifactId>${bom.artifactId}</artifactId>
-                        <targetFile>${bom.artifactPath}</targetFile>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>create</goal>
-                                <goal>attach-signature</goal>
-                            </goals>
                         </execution>
                     </executions>
                 </plugin>
