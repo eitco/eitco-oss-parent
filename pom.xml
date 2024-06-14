@@ -148,7 +148,7 @@
         <exec.file.extension />
 
 
-        <spring.boot.version>2.3.6.RELEASE</spring.boot.version>
+        <spring.boot.version>3.2.5</spring.boot.version>
         <jackson.version>2.17.1</jackson.version>
         <opentelemetry.version>1.32.0</opentelemetry.version>
         <testng.version>7.8.0</testng.version>
