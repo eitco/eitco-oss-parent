@@ -68,6 +68,7 @@
         <original.version>${project.version}</original.version>
         <version.numeric>${version.major}.${version.minor}.${version.incremental}</version.numeric>
         <version.symbolic>latest</version.symbolic>
+        <version.semantic.stable>${version.semantic}-build.${build.number}</version.semantic.stable>
 
 
         <skip.unit.tests>false</skip.unit.tests>
@@ -133,7 +134,7 @@
         <frontend.maven.plugin.version>1.12.1</frontend.maven.plugin.version>
         <npm.scope>@${application.vendor.shortname}</npm.scope>
         <npm.package.name>${application.name}</npm.package.name>
-        <npm.project.version>${version.semantic}-build.${build.number}</npm.project.version>
+        <npm.project.version>${version.semantic.stable}</npm.project.version>
 
         <node.version>v16.15.0</node.version>
         <npm.version>6.14.16</npm.version>
