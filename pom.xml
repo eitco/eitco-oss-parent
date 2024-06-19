@@ -65,6 +65,7 @@
         <version.original>${project.version}</version.original>
         <version.numeric>${version.major}.${version.minor}.${version.incremental}</version.numeric>
         <version.semantic>${project.version}</version.semantic>
+        <version.symbolic/>
 
         <version.adapted>${project.version}</version.adapted>
         <version.unique>${version.semantic}-build.${build.number}</version.unique>
