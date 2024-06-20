@@ -150,9 +150,20 @@
         <system.os />
         <exec.file.extension />
 
+        <jackson.version>2.17.1</jackson.version>
+        <jackson.version.annotations>${jackson.version}</jackson.version.annotations>
+        <jackson.version.core>${jackson.version}</jackson.version.core>
+        <jackson.version.databind>${jackson.version}</jackson.version.databind>
+        <jackson.version.dataformat>${jackson.version}</jackson.version.dataformat>
+        <jackson.version.datatype>${jackson.version}</jackson.version.datatype>
+        <jackson.version.jaxrs>${jackson.version}</jackson.version.jaxrs>
+        <jackson.version.jakarta.rs>${jackson.version}</jackson.version.jakarta.rs>
+        <jackson.version.jacksonjr>${jackson.version}</jackson.version.jacksonjr>
+        <jackson.version.module>${jackson.version}</jackson.version.module>
+        <jackson.version.module.kotlin>${jackson.version.module}</jackson.version.module.kotlin>
+        <jackson.version.module.scala>${jackson.version.module}</jackson.version.module.scala>
 
         <spring.boot.version>3.2.5</spring.boot.version>
-        <jackson.version>2.17.1</jackson.version>
         <opentelemetry.version>1.32.0</opentelemetry.version>
         <testng.version>7.8.0</testng.version>
 
@@ -164,6 +175,14 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
             <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
