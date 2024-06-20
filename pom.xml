@@ -137,7 +137,7 @@
         <frontend.maven.plugin.version>1.12.1</frontend.maven.plugin.version>
         <npm.scope>@${application.vendor.shortname}</npm.scope>
         <npm.package.name>${application.name}</npm.package.name>
-        <npm.project.version>${version.semantic.unique}</npm.project.version>
+        <npm.project.version>${version.unique}</npm.project.version>
 
         <node.version>v16.15.0</node.version>
         <npm.version>6.14.16</npm.version>
@@ -149,19 +149,6 @@
         <!-- will be set by profiles -->
         <system.os />
         <exec.file.extension />
-
-        <jackson.version>2.17.1</jackson.version>
-        <jackson.version.annotations>${jackson.version}</jackson.version.annotations>
-        <jackson.version.core>${jackson.version}</jackson.version.core>
-        <jackson.version.databind>${jackson.version}</jackson.version.databind>
-        <jackson.version.dataformat>${jackson.version}</jackson.version.dataformat>
-        <jackson.version.datatype>${jackson.version}</jackson.version.datatype>
-        <jackson.version.jaxrs>${jackson.version}</jackson.version.jaxrs>
-        <jackson.version.jakarta.rs>${jackson.version}</jackson.version.jakarta.rs>
-        <jackson.version.jacksonjr>${jackson.version}</jackson.version.jacksonjr>
-        <jackson.version.module>${jackson.version}</jackson.version.module>
-        <jackson.version.module.kotlin>${jackson.version.module}</jackson.version.module.kotlin>
-        <jackson.version.module.scala>${jackson.version.module}</jackson.version.module.scala>
 
         <spring.boot.version>3.2.5</spring.boot.version>
         <opentelemetry.version>1.32.0</opentelemetry.version>
