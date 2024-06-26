@@ -644,6 +644,11 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>de.eitco.cicd</groupId>
+                    <artifactId>build-utilities-maven-plugin</artifactId>
+                    <version>0.0.3-SNAPSHOT</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
