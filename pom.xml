@@ -661,7 +661,7 @@
                 <plugin>
                     <groupId>de.eitco.cicd</groupId>
                     <artifactId>build-utilities-maven-plugin</artifactId>
-                    <version>0.0.3-SNAPSHOT</version>
+                    <version>0.0.3</version>
                 </plugin>
             </plugins>
         </pluginManagement>
