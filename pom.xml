@@ -4,7 +4,7 @@
 
     <groupId>de.eitco</groupId>
     <artifactId>eitco-oss-parent</artifactId>
-    <version>0.0.10-SNAPSHOT</version>
+    <version>0.0.9-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>eitco open source parent pom</name>
