@@ -408,7 +408,6 @@
                     <configuration>
                         <tagNameFormat>@{project.version}</tagNameFormat>
                         <autoVersionSubmodules>true</autoVersionSubmodules>
-                        <arguments>-Dversioning.disable=true</arguments>
                         <releaseProfiles>deploy-to-central</releaseProfiles>
                     </configuration>
                 </plugin>
