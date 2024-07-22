@@ -559,6 +559,7 @@
                             <goal>install</goal>
                         </goals>
                         <showErrors>true</showErrors>
+                        <streamLogsOnFailures>true</streamLogsOnFailures>
                         <debug>false</debug>
                         <skipInvocation>${skip.integration.tests}</skipInvocation>
                         <skipInstallation>${skip.integration.tests}</skipInstallation>
