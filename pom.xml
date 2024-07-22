@@ -116,7 +116,7 @@
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
         <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
         <maven.assembly.plugin.version>3.1.0</maven.assembly.plugin.version>
-        <jacoco.maven.plugin.version>0.8.7</jacoco.maven.plugin.version>
+        <jacoco.maven.plugin.version>0.8.12</jacoco.maven.plugin.version>
         <maven.archetype.plugin.version>3.2.1</maven.archetype.plugin.version>
         <maven.javadoc.plugin.version>3.0.1</maven.javadoc.plugin.version>
         <maven.project.info.reports.plugin.version>3.0.0</maven.project.info.reports.plugin.version>
@@ -543,7 +543,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-invoker-plugin</artifactId>
-                    <version>3.5.1</version>
+                    <version>3.7.0</version>
                     <configuration>
                         <writeJunitReport>true</writeJunitReport>
                         <settingsFile>${maven.invoker.plugin.settings.location}</settingsFile>
