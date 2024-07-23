@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.eitco.cicd</groupId>
@@ -34,8 +35,8 @@
         <url>https://github.com/eitco/eitco-oss-parent.git</url>
         <connection>scm:git:https://github.com/eitco/eitco-oss-parent.git</connection>
         <developerConnection>scm:git:https://github.com/eitco/eitco-oss-parent.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
 
@@ -65,7 +66,7 @@
         <version.original>${project.version}</version.original>
         <version.numeric>${version.major}.${version.minor}.${version.incremental}</version.numeric>
         <version.semantic>${project.version}</version.semantic>
-        <version.symbolic />
+        <version.symbolic/>
 
         <version.adapted>${project.version}</version.adapted>
         <version.unique>${version.semantic}-build.${build.number}</version.unique>
@@ -151,8 +152,8 @@
         <build.number>0</build.number>
 
         <!-- will be set by profiles -->
-        <system.os />
-        <exec.file.extension />
+        <system.os/>
+        <exec.file.extension/>
 
         <!-- Must be the same as in eitco-oss-commons-parent -->
         <spring.boot.version>3.3.1</spring.boot.version>
@@ -474,7 +475,8 @@
                             </goals>
                             <phase>package</phase>
                             <configuration>
-                                <sourcepath>${project.build.sourceDirectory}:${generated.java.main.source.directory}</sourcepath>
+                                <sourcepath>${project.build.sourceDirectory}:${generated.java.main.source.directory}
+                                </sourcepath>
                                 <failOnWarnings>false</failOnWarnings>
                                 <failOnError>false</failOnError>
                                 <additionalOptions>-html5</additionalOptions>
@@ -642,17 +644,24 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>license-maven-plugin</artifactId>
-                    <version>2.0.0</version>
+                    <version>2.4.0</version>
                     <executions>
                         <execution>
                             <id>add-thirdparty-licenses</id>
                             <goals>
                                 <goal>add-third-party</goal>
+                                <goal>download-licenses</goal>
                             </goals>
                             <configuration>
                                 <excludedGroups>
                                     de\.eitco\..*
                                 </excludedGroups>
+                                <licensesOutputDirectory>${build.outputDirectory}/META-INF/THIRD-PARTY/LICENSES
+                                </licensesOutputDirectory>
+                                <licensesOutputFile>${build.outputDirectory}/META-INF/THIRD-PARTY/LICENSES.xml
+                                </licensesOutputFile>
+                                <thirdPartyFilename>META-INF/THIRD-PARTY/LICENSES.txt</thirdPartyFilename>
+                                <outputDirectory>${build.outputDirectory}</outputDirectory>
                             </configuration>
                         </execution>
                     </executions>
@@ -774,8 +783,8 @@
             </activation>
             <properties>
                 <system.os>linux</system.os>
-                <exec.file.extension />
-                <href.protocol />
+                <exec.file.extension/>
+                <href.protocol/>
             </properties>
         </profile>
         <profile>
