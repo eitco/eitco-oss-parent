@@ -120,10 +120,12 @@
         <maven.archetype.plugin.version>3.2.1</maven.archetype.plugin.version>
         <maven.javadoc.plugin.version>3.0.1</maven.javadoc.plugin.version>
         <maven.project.info.reports.plugin.version>3.0.0</maven.project.info.reports.plugin.version>
-        <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
+        <maven.site.plugin.version>3.12.1</maven.site.plugin.version>
+        <maven.scm.publish.plugin.version>3.1.0</maven.scm.publish.plugin.version>
         <maven.plugin.tools.version>3.9.0</maven.plugin.tools.version>
         <winsw.version>2.9.0</winsw.version>
         <maven.jarsigner.plugin.version>3.0.0</maven.jarsigner.plugin.version>
+        <maven.plugin.report.plugin.version>3.13.1</maven.plugin.report.plugin.version>
 
 
         <!-- java 9+ awareness -->
@@ -674,6 +676,21 @@
                     <groupId>de.eitco.cicd</groupId>
                     <artifactId>build-utilities-maven-plugin</artifactId>
                     <version>0.0.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-publish-plugin</artifactId>
+                    <version>${maven.scm.publish.plugin.version}</version>
+                    <configuration>
+                        <pubScmUrl>scm:git:git@github.com:eitco/eitco.github.io.git</pubScmUrl>
+                        <scmBranch>main</scmBranch>
+                        <subDirectory>${artifactId}</subDirectory>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-plugin-report-plugin</artifactId>
+                    <version>${maven.plugin.report.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
