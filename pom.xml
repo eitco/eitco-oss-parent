@@ -657,12 +657,12 @@
                                 <excludedGroups>
                                     de\.eitco\..*
                                 </excludedGroups>
-                                <licensesOutputDirectory>${build.outputDirectory}/META-INF/THIRD-PARTY/LICENSES
+                                <licensesOutputDirectory>${project.build.outputDirectory}/META-INF/THIRD-PARTY/LICENSES
                                 </licensesOutputDirectory>
-                                <licensesOutputFile>${build.outputDirectory}/META-INF/THIRD-PARTY/LICENSES.xml
+                                <licensesOutputFile>${project.build.outputDirectory}/META-INF/THIRD-PARTY/LICENSES.xml
                                 </licensesOutputFile>
                                 <thirdPartyFilename>META-INF/THIRD-PARTY/LICENSES.txt</thirdPartyFilename>
-                                <outputDirectory>${build.outputDirectory}</outputDirectory>
+                                <outputDirectory>${project.build.outputDirectory}</outputDirectory>
                             </configuration>
                         </execution>
                     </executions>
@@ -684,7 +684,7 @@
                     <configuration>
                         <pubScmUrl>scm:git:git@github.com:eitco/eitco.github.io.git</pubScmUrl>
                         <scmBranch>main</scmBranch>
-                        <subDirectory>${artifactId}</subDirectory>
+                        <subDirectory>${project.artifactId}</subDirectory>
                     </configuration>
                 </plugin>
                 <plugin>
