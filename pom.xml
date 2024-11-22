@@ -146,7 +146,7 @@
 
         <!-- 3rdparty -->
 
-        <jackson.version>2.17.2</jackson.version>
+        <jackson.version>2.18.1</jackson.version>
 
 
         <!-- expected to be set by CI -->
