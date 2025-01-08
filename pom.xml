@@ -141,8 +141,8 @@
         <npm.package.name>${application.name}</npm.package.name>
         <npm.project.version>${version.unique}</npm.project.version>
 
-        <node.version>v20.11.1</node.version>
-        <npm.version>7.24.2</npm.version>
+        <node.version>v20.18.1</node.version>
+        <npm.version>10.8.2</npm.version>
 
         <!-- 3rdparty -->
 
