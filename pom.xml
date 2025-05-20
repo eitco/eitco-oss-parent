@@ -145,7 +145,7 @@
         <npm.version>10.8.2</npm.version>
 
         <!-- 3rdparty -->
-        <jackson.version>2.18.2</jackson.version>
+        <jackson.version>2.18.3</jackson.version>
 
         <!-- expected to be set by CI -->
         <build.number>0</build.number>
