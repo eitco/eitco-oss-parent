@@ -917,7 +917,7 @@
             </build>
         </profile>
         <profile>
-            <id>specify-code-signing-store-password</id>
+            <id>specify-code-signing-store-alias</id>
             <activation>
                 <property>
                     <name>env.CODE_SIGNING_STORE_ALIAS</name>
