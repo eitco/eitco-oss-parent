@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.eitco.cicd</groupId>
     <artifactId>eitco-oss-parent</artifactId>
-    <version>0.0.21-SNAPSHOT</version>
+    <version>0.0.21</version>
     <packaging>pom</packaging>
 
     <name>eitco open source parent pom</name>
@@ -35,7 +34,7 @@
         <url>https://github.com/eitco/eitco-oss-parent.git</url>
         <connection>scm:git:https://github.com/eitco/eitco-oss-parent.git</connection>
         <developerConnection>scm:git:https://github.com/eitco/eitco-oss-parent.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>0.0.21</tag>
     </scm>
 
     <properties>
@@ -66,7 +65,7 @@
         <version.original>${project.version}</version.original>
         <version.numeric>${version.major}.${version.minor}.${version.incremental}</version.numeric>
         <version.semantic>${project.version}</version.semantic>
-        <version.symbolic/>
+        <version.symbolic />
 
         <version.adapted>${project.version}</version.adapted>
         <version.unique>${version.semantic}-build.${build.number}</version.unique>
@@ -152,8 +151,8 @@
         <build.number>0</build.number>
 
         <!-- will be set by profiles -->
-        <system.os/>
-        <exec.file.extension/>
+        <system.os />
+        <exec.file.extension />
 
         <!-- Must be the same as in eitco-oss-commons-parent -->
         <spring.boot.version>3.4.3</spring.boot.version>
@@ -800,8 +799,8 @@
             </activation>
             <properties>
                 <system.os>linux</system.os>
-                <exec.file.extension/>
-                <href.protocol/>
+                <exec.file.extension />
+                <href.protocol />
             </properties>
         </profile>
         <profile>
