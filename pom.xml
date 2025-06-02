@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.eitco.cicd</groupId>
@@ -65,7 +66,7 @@
         <version.original>${project.version}</version.original>
         <version.numeric>${version.major}.${version.minor}.${version.incremental}</version.numeric>
         <version.semantic>${project.version}</version.semantic>
-        <version.symbolic />
+        <version.symbolic/>
 
         <version.adapted>${project.version}</version.adapted>
         <version.unique>${version.semantic}-build.${build.number}</version.unique>
@@ -151,8 +152,8 @@
         <build.number>0</build.number>
 
         <!-- will be set by profiles -->
-        <system.os />
-        <exec.file.extension />
+        <system.os/>
+        <exec.file.extension/>
 
         <!-- Must be the same as in eitco-oss-commons-parent -->
         <spring.boot.version>3.4.3</spring.boot.version>
@@ -799,8 +800,8 @@
             </activation>
             <properties>
                 <system.os>linux</system.os>
-                <exec.file.extension />
-                <href.protocol />
+                <exec.file.extension/>
+                <href.protocol/>
             </properties>
         </profile>
         <profile>
@@ -832,7 +833,7 @@
             </build>
         </profile>
         <profile>
-            <id>sign-code</id>
+            <id>sign-code-deprecated</id>
             <activation>
                 <property>
                     <name>env.SIGNATURE_KEYSTORE_FILE</name>
@@ -859,6 +860,77 @@
                                     </goals>
                                 </execution>
                             </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+        <profile>
+            <id>sign-code-pkcs11</id>
+            <activation>
+                <property>
+                    <name>env.PKCS11_CONFIG</name>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-jarsigner-plugin</artifactId>
+                            <configuration>
+                                <keystore>NONE</keystore>
+                                <storetype>PKCS11</storetype>
+                                <providerClass>sun.security.pkcs11.SunPKCS11</providerClass>
+                                <providerArg>${env.PKCS11_CONFIG}</providerArg>
+                            </configuration>
+                            <executions>
+                                <execution>
+                                    <id>sign-artifacts</id>
+                                    <goals>
+                                        <goal>sign</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+        <profile>
+            <id>specify-code-signing-store-password</id>
+            <activation>
+                <property>
+                    <name>env.CODE_SIGNING_STORE_PASSWORD</name>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-jarsigner-plugin</artifactId>
+                            <configuration>
+                                <storepass>${env.CODE_SIGNING_STORE_PASSWORD}</storepass>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+        <profile>
+            <id>specify-code-signing-store-password</id>
+            <activation>
+                <property>
+                    <name>env.CODE_SIGNING_STORE_ALIAS</name>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-jarsigner-plugin</artifactId>
+                            <configuration>
+                                <alias>${env.CODE_SIGNING_STORE_ALIAS}</alias>
+                            </configuration>
                         </plugin>
                     </plugins>
                 </pluginManagement>
