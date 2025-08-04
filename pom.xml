@@ -549,8 +549,9 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-invoker-plugin</artifactId>
-                    <version>3.7.0</version>
+                    <version>3.9.1</version>
                     <configuration>
                         <writeJunitReport>true</writeJunitReport>
                         <settingsFile>${maven.invoker.plugin.settings.location}</settingsFile>
