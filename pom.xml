@@ -102,7 +102,6 @@
         </failsafe.reports.directory>
         <sonar.junit.reportPaths>${surefire.reports.directory}, ${failsafe.reports.directory}
         </sonar.junit.reportPaths>
-        <sonar.jacoco.reportPaths>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPaths>
 
         <!-- maven standard (and a bit more) plugins -->
         <sonar.maven.plugin.version>5.1.0.4751</sonar.maven.plugin.version>
@@ -440,19 +439,15 @@
                     <version>${jacoco.maven.plugin.version}</version>
                     <configuration>
                         <propertyName>jacoco.command.line</propertyName>
-                        <destFile>${sonar.jacoco.reportPaths}</destFile>
-                        <append>true</append>
+                        <formats>
+                            <format>XML</format>
+                            <format>HTML</format>
+                        </formats>
                     </configuration>
                     <executions>
                         <execution>
                             <goals>
                                 <goal>prepare-agent</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>report</id>
-                            <phase>verify</phase>
-                            <goals>
                                 <goal>report</goal>
                             </goals>
                         </execution>
