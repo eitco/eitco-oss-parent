@@ -146,6 +146,7 @@
         <!-- 3rdparty -->
         <jackson-2.version>2.20.1</jackson-2.version>
         <jackson.version>3.0.1</jackson.version>
+        <jackson-annotations-version>2.20</jackson-annotations-version>
 
         <!-- expected to be set by CI -->
         <build.number>0</build.number>
