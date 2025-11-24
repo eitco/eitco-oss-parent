@@ -145,7 +145,7 @@
 
         <!-- 3rdparty -->
         <jackson-2.version>2.20.1</jackson-2.version>
-        <jackson.version>3.0.1</jackson.version>
+        <jackson.version>3.0.2</jackson.version>
         <jackson-annotations-version>2.20</jackson-annotations-version>
 
         <!-- expected to be set by CI -->
@@ -181,7 +181,7 @@
             <dependency>
                 <groupId>org.jetbrains</groupId>
                 <artifactId>annotations</artifactId>
-                <version>23.0.0</version>
+                <version>26.0.2-1</version>
             </dependency>
 
 
