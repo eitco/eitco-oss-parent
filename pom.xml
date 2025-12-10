@@ -4,7 +4,7 @@
 
     <groupId>de.eitco.cicd</groupId>
     <artifactId>eitco-oss-parent</artifactId>
-    <version>0.0.26-SNAPSHOT</version>
+    <version>0.0.27-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>eitco open source parent pom</name>
@@ -147,6 +147,8 @@
         <jackson-2.version>2.20.1</jackson-2.version>
         <jackson.version>3.0.2</jackson.version>
         <jackson-annotations-version>2.20</jackson-annotations-version>
+        <commons-io.version>2.21.0</commons-io.version>
+        <commons-compress.version>1.28.0</commons-compress.version>
 
         <!-- expected to be set by CI -->
         <build.number>0</build.number>
@@ -243,12 +245,12 @@
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>2.21.0</version>
+                <version>${commons-io.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-compress</artifactId>
-                <version>1.28.0</version>
+                <version>${commons-compress.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.mojo</groupId>
