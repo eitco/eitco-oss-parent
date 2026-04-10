@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.eitco.cicd</groupId>
@@ -65,7 +66,7 @@
         <version.original>${project.version}</version.original>
         <version.numeric>${version.major}.${version.minor}.${version.incremental}</version.numeric>
         <version.semantic>${project.version}</version.semantic>
-        <version.symbolic />
+        <version.symbolic/>
 
         <version.adapted>${project.version}</version.adapted>
         <version.unique>${version.semantic}-build.${build.number}</version.unique>
@@ -115,7 +116,7 @@
         <maven.surefire.plugin.version>3.5.3</maven.surefire.plugin.version>
         <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
         <maven.assembly.plugin.version>3.1.0</maven.assembly.plugin.version>
-        <jacoco.maven.plugin.version>0.8.13</jacoco.maven.plugin.version>
+        <jacoco.maven.plugin.version>0.8.14</jacoco.maven.plugin.version>
         <maven.archetype.plugin.version>3.2.1</maven.archetype.plugin.version>
         <maven.javadoc.plugin.version>3.0.1</maven.javadoc.plugin.version>
         <maven.project.info.reports.plugin.version>3.0.0</maven.project.info.reports.plugin.version>
@@ -154,8 +155,8 @@
         <build.number>0</build.number>
 
         <!-- will be set by profiles -->
-        <system.os />
-        <exec.file.extension />
+        <system.os/>
+        <exec.file.extension/>
 
         <!-- Must be the same as in eitco-oss-commons-parent -->
         <spring.boot.version>4.0.4</spring.boot.version>
@@ -448,19 +449,34 @@
                     <version>${jacoco.maven.plugin.version}</version>
                     <configuration>
                         <propertyName>jacoco.command.line</propertyName>
-                        <formats>
-                            <format>XML</format>
-                            <format>HTML</format>
-                        </formats>
                     </configuration>
                     <executions>
                         <execution>
                             <goals>
                                 <goal>prepare-agent</goal>
-                                <goal>report</goal>
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>io.github.miracelwhipp.neincoco</groupId>
+                    <artifactId>neincoco-maven-plugin</artifactId>
+                    <version>1.0.2</version>
+                    <executions>
+                        <execution>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>merge</goal>
+                                <goal>report</goal>
+                                <goal>post-process</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <execIncludes>
+                            <execInclude>**/jacoco*.exec</execInclude>
+                        </execIncludes>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
@@ -805,8 +821,8 @@
             </activation>
             <properties>
                 <system.os>linux</system.os>
-                <exec.file.extension />
-                <href.protocol />
+                <exec.file.extension/>
+                <href.protocol/>
             </properties>
         </profile>
         <profile>
