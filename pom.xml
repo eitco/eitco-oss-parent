@@ -473,6 +473,7 @@
                         </execution>
                     </executions>
                     <configuration>
+                        <xmlReportFile>${maven.multiModuleProjectDirectory}/target/jacoco.xml</xmlReportFile>
                         <execIncludes>
                             <execInclude>**/jacoco*.exec</execInclude>
                         </execIncludes>
