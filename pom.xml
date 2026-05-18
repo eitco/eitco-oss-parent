@@ -116,6 +116,7 @@
         <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
         <maven.assembly.plugin.version>3.1.0</maven.assembly.plugin.version>
         <jacoco.maven.plugin.version>0.8.14</jacoco.maven.plugin.version>
+        <neincoco-maven-plugin.version>1.1.1</neincoco-maven-plugin.version>
         <maven.archetype.plugin.version>3.2.1</maven.archetype.plugin.version>
         <maven.javadoc.plugin.version>3.0.1</maven.javadoc.plugin.version>
         <maven.project.info.reports.plugin.version>3.0.0</maven.project.info.reports.plugin.version>
@@ -460,7 +461,7 @@
                 <plugin>
                     <groupId>io.github.miracelwhipp.neincoco</groupId>
                     <artifactId>neincoco-maven-plugin</artifactId>
-                    <version>1.1.0</version>
+                    <version>${neincoco-maven-plugin.version}</version>
                     <executions>
                         <execution>
                             <phase>verify</phase>
