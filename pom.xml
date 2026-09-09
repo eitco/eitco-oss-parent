@@ -4,7 +4,7 @@
 
     <groupId>de.eitco.cicd</groupId>
     <artifactId>eitco-oss-parent</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>eitco open source parent pom</name>
